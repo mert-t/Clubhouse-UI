@@ -7,39 +7,11 @@ import '../data.dart';
   AppBar customAppBar() {
     return AppBar(
       elevation: 0,
-      leading: IconButton(
-        onPressed: () {},
-        icon: const Icon(
-          CupertinoIcons.search,
-          color: Colors.black,
-          size: 28.0,
-        ),
-      ),
+      leading: CustomIcon(press:(){}, icon: CupertinoIcons.search,size: 26.0,),
       actions: [
-        IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            CupertinoIcons.envelope_open,
-            color: Colors.black,
-            size: 26.0,
-          ),
-        ),
-        IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            CupertinoIcons.calendar,
-            color: Colors.black,
-            size: 28.0,
-          ),
-        ),
-        IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            CupertinoIcons.bell,
-            color: Colors.black,
-            size: 28.0,
-          ),
-        ),
+        CustomIcon(press:(){}, icon: CupertinoIcons.envelope,size: 26.0,),
+        CustomIcon(press:(){}, icon: CupertinoIcons.calendar,size: 26.0,),
+        CustomIcon(press:(){}, icon: CupertinoIcons.bell,size: 26.0,),
         GestureDetector(
           onTap: (){},
           child: Padding(
@@ -50,3 +22,25 @@ import '../data.dart';
       ],
     );
   }
+
+class CustomIcon extends StatelessWidget {
+  const CustomIcon({
+    Key? key, required this.press, required this.icon, required this.size,
+  }) : super(key: key);
+ final GestureTapCallback press;
+ final IconData icon;
+ final double size;
+
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: press,
+      icon: Icon(
+       icon,
+        color: Colors.black,
+        size:size,
+      ),
+    );
+  }
+}
