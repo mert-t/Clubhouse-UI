@@ -7,11 +7,11 @@ import '../data.dart';
   AppBar customAppBar() {
     return AppBar(
       elevation: 0,
-      leading: CustomIcon(press:(){}, icon: CupertinoIcons.search,size: 26.0,),
+      leading: CustomIcon(press:(){}, icon: CupertinoIcons.search,size: 28.0,),
       actions: [
-        CustomIcon(press:(){}, icon: CupertinoIcons.envelope,size: 26.0,),
-        CustomIcon(press:(){}, icon: CupertinoIcons.calendar,size: 26.0,),
-        CustomIcon(press:(){}, icon: CupertinoIcons.bell,size: 26.0,),
+        CustomIcon(press:(){}, icon: CupertinoIcons.envelope,size: 28.0,),
+        CustomIcon(press:(){}, icon: CupertinoIcons.calendar,size: 28.0,),
+        CustomIcon(press:(){}, icon: CupertinoIcons.bell,size: 28.0,),
         GestureDetector(
           onTap: (){},
           child: Padding(
