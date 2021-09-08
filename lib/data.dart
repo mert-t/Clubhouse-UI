@@ -19,10 +19,10 @@ const User currentUser = User(
 
 const List<User> _allUsers = [
   User(
-    givenName: 'Marcus',
-    familyName: 'Ng',
+    givenName: 'Mert',
+    familyName: 'T',
     imageUrl:
-        'https://images.unsplash.com/photo-1578133671540-edad0b3d689e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80',
+        'https://pbs.twimg.com/profile_images/1205867508089180162/ypOuyxvZ_400x400.jpg',
   ),
   User(
     givenName: 'David',
