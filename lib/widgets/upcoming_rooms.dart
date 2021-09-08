@@ -32,7 +32,9 @@ class UpcomingRooms extends StatelessWidget {
                             EdgeInsets.only(top: e.club.isNotEmpty ? 2.0 : 0.0),
                         child: Text(e.time),
                       ),
-                      const SizedBox(width: 12.0,),
+                      const SizedBox(
+                        width: 12.0,
+                      ),
                       Expanded(
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
@@ -40,17 +42,23 @@ class UpcomingRooms extends StatelessWidget {
                           children: [
                             if (e.club.isNotEmpty)
                               Flexible(
-                                
                                 child: Text(
                                   '${e.club} 🏠'.toUpperCase(),
-                                  style: Theme.of(context).textTheme.overline!.copyWith(fontWeight: FontWeight.w600,
-                                  letterSpacing: 1.0,  
-                                  ),
-                                overflow: TextOverflow.ellipsis,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .overline!
+                                      .copyWith(
+                                        fontWeight: FontWeight.w600,
+                                        letterSpacing: 1.0,
+                                      ),
+                                  overflow: TextOverflow.ellipsis,
                                 ),
-                                
                               ),
-                            Flexible(child: Text(e.name,overflow: TextOverflow.ellipsis,)),
+                            Flexible(
+                                child: Text(
+                              e.name,
+                              overflow: TextOverflow.ellipsis,
+                            )),
                           ],
                         ),
                       )
