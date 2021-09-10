@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_clubhouse_ui/widgets/user_profile_image.dart';
 import 'package:flutter_clubhouse_ui/widgets/widgets.dart';
 
@@ -106,6 +107,147 @@ class RoomScreen extends StatelessWidget {
                         ),
                       )
                       .toList()),
+            ),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.only(left: 20.0),
+                child: Text(
+                  'Followed by speakers',
+                  style: Theme.of(context).textTheme.subtitle2!.copyWith(
+                        color: Colors.grey[400],
+                        fontWeight: FontWeight.bold,
+                      ),
+                ),
+              ),
+            ),
+            SliverPadding(
+              padding: const EdgeInsets.all(20.0),
+              sliver: SliverGrid.count(
+                  crossAxisCount: 4,
+                  childAspectRatio: 0.7,
+                  mainAxisSpacing: 20.0,
+                  children: room.followedBySpeakers
+                      .map(
+                        (e) => RoomUserProfile(
+                          imageUrl: e.imageUrl,
+                          size: 66.0,
+                          name: e.givenName,
+                          isNew: Random().nextBool(),
+                        ),
+                      )
+                      .toList()),
+            ),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.only(left: 20.0),
+                child: Text(
+                  'Others in room',
+                  style: Theme.of(context).textTheme.subtitle2!.copyWith(
+                        color: Colors.grey[400],
+                        fontWeight: FontWeight.bold,
+                      ),
+                ),
+              ),
+            ),
+            SliverPadding(
+              padding: const EdgeInsets.all(20.0),
+              sliver: SliverGrid.count(
+                  crossAxisCount: 4,
+                  childAspectRatio: 0.7,
+                  mainAxisSpacing: 20.0,
+                  children: room.others
+                      .map(
+                        (e) => RoomUserProfile(
+                          imageUrl: e.imageUrl,
+                          size: 66.0,
+                          name: e.givenName,
+                          isNew: Random().nextBool(),
+                        ),
+                      )
+                      .toList()),
+            ),
+            const SliverPadding(
+              padding: EdgeInsets.only(bottom: 100.0),
+            ),
+          ],
+        ),
+      ),
+      bottomSheet: Container(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 20.0,
+          vertical: 12.0,
+        ),
+        height: 110.0,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            GestureDetector(
+              onTap: () => Navigator.of(context).pop(),
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 6.0,
+                  horizontal: 16.0,
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.grey[300],
+                  borderRadius: BorderRadius.circular(24.0),
+                ),
+                child: const Text.rich(
+                  TextSpan(
+                    children: [
+                      TextSpan(
+                        text: '✌️',
+                        style: TextStyle(fontSize: 20.0),
+                      ),
+                      TextSpan(
+                        text: 'Leave quietly',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          color: Colors.red,
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: 1.0,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                GestureDetector(
+                  onTap: () {},
+                  child: Container(
+                    padding: const EdgeInsets.all(16.0),
+                    decoration: BoxDecoration(
+                      color: Colors.grey[300],
+                      shape: BoxShape.circle,
+                    ),
+                    child: const Icon(
+                      CupertinoIcons.add,
+                      size: 20.0,
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  width: 16.0,
+                ),
+                GestureDetector(
+                  onTap: () {},
+                  child: Container(
+                    padding: const EdgeInsets.all(16.0),
+                    decoration: BoxDecoration(
+                      color: Colors.grey[300],
+                      shape: BoxShape.circle,
+                    ),
+                    child: const Icon(
+                      CupertinoIcons.hand_raised,
+                      size: 20.0,
+                    ),
+                  ),
+                )
+              ],
             )
           ],
         ),
