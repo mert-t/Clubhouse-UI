@@ -1,7 +1,10 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter_clubhouse_ui/widgets/user_profile_image.dart';
+import 'package:flutter_clubhouse_ui/widgets/widgets.dart';
 
 import '../data.dart';
 
@@ -87,6 +90,23 @@ class RoomScreen extends StatelessWidget {
                 ],
               ),
             ),
+            SliverPadding(
+              padding: const EdgeInsets.all(20.0),
+              sliver: SliverGrid.count(
+                  crossAxisCount: 3,
+                  mainAxisSpacing: 20.0,
+                  children: room.speakers
+                      .map(
+                        (e) => RoomUserProfile(
+                          imageUrl: e.imageUrl,
+                          size: 66.0,
+                          name: e.givenName,
+                          isNew: Random().nextBool(),
+                          isMuted: Random().nextBool(),
+                        ),
+                      )
+                      .toList()),
+            )
           ],
         ),
       ),
