@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_clubhouse_ui/screens/profile/profile_screen.dart';
 import 'package:flutter_clubhouse_ui/widgets/user_profile_image.dart';
 
 import '../data.dart';
 
-  AppBar customAppBar() {
+  AppBar customAppBar(BuildContext context) {
     return AppBar(
       elevation: 0,
       leading: CustomIcon(press:(){}, icon: CupertinoIcons.search,size: 28.0,),
@@ -13,7 +14,7 @@ import '../data.dart';
         CustomIcon(press:(){}, icon: CupertinoIcons.calendar,size: 28.0,),
         CustomIcon(press:(){}, icon: CupertinoIcons.bell,size: 28.0,),
         GestureDetector(
-          onTap: (){},
+          onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfileScreen())),
           child: Padding(
             padding: const EdgeInsets.fromLTRB(8.0,10.0,20.0,10.0),
             child: UserProfileImage(imageUrl:currentUser.imageUrl,size: 36.0,),

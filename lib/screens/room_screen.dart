@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_clubhouse_ui/screens/profile/profile_screen.dart';
 import 'package:flutter_clubhouse_ui/widgets/user_profile_image.dart';
 import 'package:flutter_clubhouse_ui/widgets/widgets.dart';
 
@@ -38,7 +39,8 @@ class RoomScreen extends StatelessWidget {
             ),
           ),
           GestureDetector(
-            onTap: () {},
+            onTap: () => Navigator.of(context).push(MaterialPageRoute(
+          fullscreenDialog: true, builder: (_) => ProfileScreen())),
             child: Padding(
               padding: const EdgeInsets.fromLTRB(8.0, 10.0, 20.0, 10.0),
               child: UserProfileImage(
