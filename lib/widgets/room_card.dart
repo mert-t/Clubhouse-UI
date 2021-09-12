@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_clubhouse_ui/screens/room_screen.dart';
+import 'package:flutter_clubhouse_ui/screens/room/room_screen.dart';
 import 'package:flutter_clubhouse_ui/widgets/widgets.dart';
 
 import '../data.dart';

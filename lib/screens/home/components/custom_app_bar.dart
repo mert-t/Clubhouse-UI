@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_clubhouse_ui/screens/profile/profile_screen.dart';
 import 'package:flutter_clubhouse_ui/widgets/user_profile_image.dart';
 
-import '../data.dart';
+import '../../../data.dart';
 
   AppBar customAppBar(BuildContext context) {
     return AppBar(
